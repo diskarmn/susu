@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='diska.css')}}">
+    <!--aos-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- bs -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+    <title>index</title>
+    <style>
+        * {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        header {
+            background-color: rgb(255, 241, 241);
+            width: 100% !important;
+            box-sizing: border-box !important;
+            overflow: hidden !important;
+        }
+
+        header div {
+            width: 30% !important;
+            box-sizing: border-box !important;
+            overflow: hidden !important;
+        }
+
+        header div:nth-child(1) {
+            width: 20% !important;
+        }
+
+        header div:nth-child(2) {
+            width: 50% !important;
+        }
+
+        header div:nth-child(3) {
+            width: 20% !important;
+        }
+
+        .gambarjudul {
+            width: 50px;
+        }
+
+        .kembali {
+            display: block;
+        }
+
+        .kembali a {
+            display: block;
+            width: 30%;
+            animation: gerak 1s infinite;
+        }
+
+        @keyframes gerak {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(10px);
+            }
+        }
+
+        .judul h1 {
+            padding-top: 10px;
+            padding-left: 5px;
+        }
+
+        main {
+            background-image: url('{{url_for("static",filename="susu.jpg")}}');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .gelap {
+            background-color: rgba(0, 0, 0, 0.678);
+        }
+
+        .wadah {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+            gap: 20px;
+        }
+
+        .child {
+            border-radius: 10px;
+            text-align: center;
+            animation: warna 2.5s infinite;
+        }
+
+        .child:nth-child(2) {
+            animation-delay: .5s;
+        }
+
+        .child:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .child:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+
+        .child:nth-child(5) {
+            animation-delay: 2s;
+        }
+
+        @keyframes warna {
+
+            0%,
+            100% {
+                background-color: transparent
+            }
+
+            50% {
+                background-color:
+                    rgba(255, 251, 251, 0.466);
+            }
+        }
+
+        input[type="number"] {
+            background-color: rgba(255, 255, 255, 0.575);
+            border: none;
+            outline: none;
+            box-shadow: none;
+            color: black;
+        }
+
+        .custom-input::-webkit-inner-spin-button,
+        .custom-input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .tampilhasil {
+            border-radius: 10px;
+            background-color: rgba(172, 172, 172, 0.466);
+        }
+
+        @media (max-width: 767px) {
+            .gambarjudul {
+                width: 20px;
+            }
+
+            .kembali a img {
+                width: 20px !important;
+            }
+
+            .wadah {
+                grid-template-columns: repeat(2, 140px);
+                padding: 10px !important;
+            }
+
+            .child {
+                min-width: 100px !important;
+            }
+
+            .qris {
+                width: 80% !important;
+            }
+        }
+    </style>
+
+</head>
+
+<!-- HTML -->
+
+<body>
+
+    <header class="h-20 pt-4 pb-4 text-dark d-flex justify-content-between align-items-center flex-row">
+        <div class="kembali ">
+            <a class="ml-4" href="{{url_for('home')}}">
+                <img class="wi10" src="https://cdn-icons-png.flaticon.com/128/2099/2099166.png"></a>
+        </div>
+        <div class="judul justify-content-center  d-flex align-items-center flex-row">
+            <div class="gambarjudul">
+                <img class="wi10" src="https://cdn-icons-png.flaticon.com/128/112/112431.png">
+            </div>
+            <h1 class="mfz9">Susu Mbak Siska</h1>
+        </div>
+        <div class="kosongkanan "></div>
+    </header>
+    <main>
+        <form class="gelap text-white d-flex flex-column justify-content-center align-items-center pb-5 ">
+            <div class="wi10  p-5 wadah justify-content-center">
+                <!---->
+                <div
+                    class="child border border-white p-2 d-flex justify-content-center align-items-center flex-column ">
+                    <h4 class="mfz8">Susu Full Cream</h4>
+                    <div class="gambar border border-white  wi10">
+                        <img class="wi10" src="{{url_for('static',filename='strawberry.png')}}">
+                    </div>
+                    <p class="mfz8">Rp.25.000/pcs</p>
+                    <div class="form-group">
+                        <label for="fullcream">jumlah yang dipesan:</label>
+                        <input type="number" class="form-control text-dark custom-input" id="fullcream" min="0" max="5"
+                            value="0" oninput="if(this.value==='') this.value='0'">
+                    </div>
+                </div>
+                <!---->
+                <div
+                    class="child border border-white p-2 d-flex justify-content-center align-items-center flex-column ">
+                    <h4 class="mfz8">Susu Coklat</h4>
+                    <div class="gambar border border-white  wi10">
+                        <img class="wi10" src="{{url_for('static',filename='coklat.png')}}">
+                    </div>
+                    <p class="mfz8">Rp.20.000/pcs</p>
+                    <div class="form-group">
+                        <label for="coklat">jumlah yang dipesan:</label>
+                        <input type="number" class="form-control text-dark custom-input" id="coklat" min="0" max="5"
+                            value="0" oninput="if(this.value==='') this.value='0'">
+                    </div>
+                </div>
+                <!---->
+                <div
+                    class="child border border-white p-2 d-flex justify-content-center align-items-center flex-column ">
+                    <h4 class="mfz8">Susu Strawberry</h4>
+                    <div class="gambar border border-white  wi10">
+                        <img class="wi10" src="{{url_for('static',filename='fullcream.png')}}">
+                    </div>
+                    <p class="mfz8">Rp.20.000/pcs</p>
+                    <div class="form-group">
+                        <label for="strawberry">jumlah yang dipesan:</label>
+                        <input type="number" class="form-control text-dark custom-input" id="strawberry" min="0" max="5"
+                            value="0" oninput="if(this.value==='') this.value='0'">
+                    </div>
+                </div>
+                <!---->
+                <div
+                    class="child border border-white p-2 d-flex justify-content-center align-items-center flex-column ">
+                    <h4 class="mfz8">Susu Taro</h4>
+                    <div class="gambar border border-white  wi10">
+                        <img class="wi10" src="{{url_for('static',filename='taro.png')}}">
+                    </div>
+                    <p class="mfz8">Rp.20.000/pcs</p>
+                    <div class="form-group">
+                        <label for="taro">jumlah yang dipesan:</label>
+                        <input type="number" class="form-control text-dark custom-input" id="taro" min="0" max="5"
+                            value="0" oninput="if(this.value==='') this.value='0'">
+                    </div>
+                </div>
+                <!---->
+                <div
+                    class="child border border-white p-2 d-flex justify-content-center align-items-center flex-column ">
+                    <h4 class="mfz8">Susu Redvelvet</h4>
+                    <div class="gambar border border-white  wi10">
+                        <img class="wi10" src="{{url_for('static',filename='red.png')}}">
+                    </div>
+                    <p class="mfz8">Rp.20.000/pcs</p>
+                    <div class="form-group">
+                        <label for="red">jumlah yang dipesan:</label>
+                        <input type="number" class="form-control text-dark custom-input" id="red" min="0" max="5"
+                            value="0" oninput="if(this.value==='') this.value='0'">
+                    </div>
+                </div>
+                <!---->
+
+            </div>
+            <p class="mb-2 text-center mfz8 pt-2">Jumlahkan harga untuk mengetahui total bayar atau</p>
+            <button type="button" onclick="jumlah()" class="btn btn-outline-light">jumlahkan harga</button>
+            <h3 id="total" class="mb-2 text-center mfz10 pt-2" style="text-decoration: underline;">Total:</h3>
+            <div class="wi10 wi10  p-5 flex-column d-flex justify-content-center align-items-center">
+                <div class="mb-3 wi7">
+                    <label for="nama" class="form-label">Nama (wajib)</label>
+                    <input type="text" class="form-control" id="nama" required>
+                </div>
+                <div class="mb-3 wi7">
+                    <label for="nohp" class="form-label">No Hp (oposional)</label>
+                    <input type="text" class="form-control" pattern="08[0-9]{9,11}" id="nohp">
+                </div>
+                <div class="form-group form-floating wi7">
+                    <p><label for="pesan">Pesan:</label></p>
+                    <textarea class="form-control" id="pesan" name="pesan" rows="3" required></textarea>
+                </div>
+                <div class="mb-3 wi3 mt-3 qris">
+                    <img class="wi10" src="{{url_for('static', filename='qris.jpg')}}">
+                </div>
+                <p class="text-white">upload bukti screenshot pembayaran (wajib)</p>
+                <div class="input-group mb-3 wi9 custom-file wi7">
+                    <input type="file" class="form-control" id="image" name="file_give" required>
+                </div>
+                <button type="button" class="btn btn-lg btn-outline-light" onclick="beli()">Beli</button>
+                <h3 class="text-white mfz7 mt-3" id="infopesan">
+                </h3>
+            </div>
+            <div class="tampilhasil border border-white p-3">
+
+            </div>
+        </form>
+
+    </main>
+
+
+    <footer class="footer-section">
+        <div class="container d-flex justify-content-center align-items-center flex-column">
+            <h1>Susu Mbak Siska .</h1>
+            <p class="mb-0">
+                Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script>
+            </p>
+            <p class="mb-0">by Diska Romandoni.</p>
+        </div>
+    </footer>
+    <!-- JavaScript -->
+    <script>
+        AOS.init();
+        function jumlah() {
+            event.preventDefault();
+            var fullcream = $("#fullcream").val();
+            var strawberry = $("#strawberry").val();
+            var coklat = $("#coklat").val();
+            var red = $("#red").val();
+            var taro = $("#taro").val();
+            var total = fullcream * 25000 + coklat * 20000 +
+                red * 20000 + taro * 20000 + strawberry * 20000;
+            $("#total").text('Total: Rp' + total);
+        }
+        function beli() {
+            event.preventDefault();
+            var form_data = new FormData();
+            var file = $("#image").prop('files')[0];
+            var nama = $("#nama").val();
+            var nohp = $("#nohp").val();
+            var pesan = $("#pesan").val();
+            var fullcream = $("#fullcream").val();
+            var strawberry = $("#strawberry").val();
+            var coklat = $("#coklat").val();
+            var red = $("#red").val();
+            var taro = $("#taro").val();
+            var total = fullcream * 25000 + coklat * 20000 +
+                red * 20000 + taro * 20000 + strawberry * 20000;
+            form_data.append('file_give', file);
+            form_data.append('nama', nama);
+            form_data.append('nohp', nohp);
+            form_data.append('pesan', pesan);
+            form_data.append('fullcream', fullcream);
+            form_data.append('strawberry', strawberry);
+            form_data.append('coklat', coklat);
+            form_data.append('taro', taro);
+            form_data.append('red', red);
+            form_data.append('total', total);
+            $.ajax({
+                type: 'POST',
+                url: '/beli',
+                data: form_data,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    alert(response['message']);
+                    let tampil = `
+
+                    <div class="hasil p-5 m-5 mp1 mm2 text-white d-flex flex-column justify-content-center align-items-center">
+                        <button type="button" class="btn btn-outline-light m-3" onclick="refresh()">Refresh halaman</button>
+
+                        <table>
+            <tr><td class='small'>Nama</td><td>:</td></tr>
+            <tr><td><u>${response.nama}</u></td></tr>
+            <tr><td class='small'>No Hp</td><td>:</td></tr>
+            <tr><td><u>${response.nohp}</u></td></tr>
+            <tr><td class='small'>Pesan</td><td>: </td></tr>
+            <tr><td><u>${response.pesan}</u></td></tr>
+            <tr><td class='small' >Membeli Produk</td><td>: </td></tr>
+            <tr><td>fullcream/ <u>${response.fullcream}</u> pcs</td>
+            <tr><td>coklat/ <u>${response.coklat}</u> pcs</td></tr>
+            <tr><td>strawberry/ <u>${response.strawberry}</u> pcs</td></tr>
+            <tr><td>taro/ <u>${response.taro}</u> pcs</td></tr>
+            <tr><td>redvelvet/ <u>${response.redvelvet}</u> pcs</td></tr>
+            <tr><td class='small'>Total Harga</td><td>: </td></tr>
+            <tr><td><u>${response.total} </u></td></tr>
+            <tr><td class='small'>Waktu Pesan</td><td>:</td></tr>
+            <tr><td><u>${response.waktu_beli} </u></td></tr>
+
+
+            </table>
+
+            </div>`;
+
+                    $(".tampilhasil").append(tampil);
+                    $("#infopesan").text('info pesanan anda ada dibawah');
+                }
+            });
+        }
+        function refresh() {
+            window.location.reload();
+        }
+    </script>
+
+</body>
+
+
+</html>

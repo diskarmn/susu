@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Login</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+   <!--aos-->
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> 
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Bulma CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="{{url_for('static',filename='diska.css')}}">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+  <style>
+    * {
+      transition: .3s;
+    }
+
+    .kembaliwadahnya:hover {
+      transform: translateX(-20px);
+    }
+
+    .kembali {
+      transform: rotate(-90deg);
+      width: 50px;
+    }
+
+    .wadahsemua {
+      background-image: url("{{url_for('static',filename='susu2.jpg')}}");
+      height: 100vh;
+      background-position: center 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .bungkus{
+      width: 90%;
+      padding:20px;
+      border-radius: 10px;
+      background-color: rgba(240, 248, 255, 0.692);
+    }
+  </style>
+ 
+</head>
+
+<body>
+  <div class="section has-text-centered wadahsemua d-flex justify-content-center flex-column align-items-center">
+
+    <div data-aos="zoom-in" class="bungkus d-flex justify-content-center flex-column align-items-center">
+      <h1 class="title"><b>Login Admin</b> </h1>
+      <div class="container" style="width: 60%">
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="userid">ID</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input type="text" class="input" id="userid" aria-describedby="emailHelp" placeholder="My ID" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label" for="userpw">PW</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input type="password" class="input" id="userpw" placeholder="My Password" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="button is-primary" onclick="login()">Login</button>
+        <p>tidak punya akun? register sekarang!</p>
+        <a href="{{url_for('register')}}"><button class="button is-primary">Register</button></a>
+
+      </div>
+    </div>
+  </div>
+  <!---->
+  <script>
+    AOS.init();
+
+   function login() {
+     var id = $('#userid').val();
+       $.ajax({
+         type: "POST",
+         url: "/api/login",
+         data: { id_give: $('#userid').val(), pw_give: $('#userpw').val() },
+         success: function (response) {
+           if (response['result'] === 'success') {
+             $.cookie('mytoken', response['token']);
+             alert('Login complete!')
+             window.location.href = '/admin';
+           } else {
+             alert(response['msg'])
+           }
+         }
+       })
+     }
+
+   
+ </script>
+</body>
+
+</html>

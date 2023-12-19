@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{url_for('static', filename='diska.css')}}">
+    <!--aos-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet" />
+    <!-- <link rel="stylesheet" type="text/css" href="../static/style.css" /> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+
+    <style>
+        * {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        header {
+            background-color: rgb(255, 241, 241);
+            width: 100% !important;
+            box-sizing: border-box !important;
+            overflow: hidden !important;
+        }
+
+        header div {
+            box-sizing: border-box !important;
+            overflow: hidden !important;
+        }
+
+        header div:nth-child(1) {
+            width: 20% !important;
+        }
+
+        header div:nth-child(2) {
+            width: 50% !important;
+        }
+
+        header div:nth-child(3) {
+            width: 20% !important;
+        }
+
+        .gambarjudul {
+            width: 50px;
+        }
+
+        .judul h1 {
+            padding-top: 10px;
+            padding-left: 5px;
+        }
+
+        .kembali {
+            height: max-content !important;
+        }
+
+        #kiri {
+            width: 100px !important;
+        }
+
+        .tampilkan {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+            grid-gap: 30px;
+
+        }
+
+        .wadah {
+            background-image: url('{{url_for("static",filename="susu.jpg")}}') !important;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        @media (max-width: 767px) {
+            .gambarjudul {
+                width: 20px;
+            }
+
+            #kiri {
+                width: 70px !important;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <header class="h-20 pt-2 pb-2 text-dark d-flex justify-content-between align-items-center flex-row">
+        <div class="kembali pl-2 flex-column d-flex align-items-center">
+            <div id="kiri">
+                <img class=" wi10" src="../{{file}}">
+            </div>
+            <p class="text-center">admin: {{nickname}}</p>
+        </div>
+
+        </div>
+        <div class="judul justify-content-center  d-flex align-items-center flex-row">
+            <div class="gambarjudul">
+                <img class="wi10" src="https://cdn-icons-png.flaticon.com/128/112/112431.png">
+            </div>
+            <h1 class="mfz9">Susu Mbak Siska</h1>
+        </div>
+        <div class="kanan  d-flex justify-content-evenly flex-row align-items-center">
+            <button class="btn btn-danger" onclick="logout()" type="submit button">Logout</button>
+
+        </div>
+    </header>
+    <div class="wadah wi10 p-2 d-flex justify-content-center flex-column align-items-center">
+        <button type="button submit " class="btn btn-outline-light" onclick="refresh()">Refresh halaman</button>
+        <div class="tampilkan wi10 p-3 mt-3 mb-3">
+
+        </div>
+    </div>
+
+
+
+
+
+    <footer class="footer-section">
+        <div class="container d-flex justify-content-center align-items-center flex-column">
+            <h1>Susu Mbak Siska .</h1>
+            <p class="mb-0">
+                Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script>
+            </p>
+            <p class="mb-0">by Diska Romandoni.</p>
+        </div>
+    </footer>
+    <script>
+        function refresh() {
+            window.location.reload();
+        }
+        $(document).ready(function () {
+            pesanan();
+        });
+
+        function pesanan() {
+            $.ajax({
+                type: 'GET',
+                url: '/tampilpesanan',
+                data: {},
+                success: function (response) {
+                    var isi = response['pelanggan'];
+                    for (let i = 0; i < isi.length; i++) {
+                        let nomor = isi[i]['nomor'];
+                        let nama = isi[i]['nama'];
+                        let nohp = isi[i]['nohp'];
+                        let pesan = isi[i]['pesan'];
+                        let fullcream = isi[i]['fullcream'];
+                        let coklat = isi[i]['coklat'];
+                        let strawberry = isi[i]['strawberry'];
+                        let taro = isi[i]['taro'];
+                        let redvelvet = isi[i]['redvelvet'];
+                        let total = isi[i]['total'];
+                        let waktu = isi[i]['waktu beli'];
+                        let file = isi[i]['file'];
+                        let status = isi[i]['status'];
+                        let temp = ``;
+                        if (status === 'belum') {
+                            let temp = `  <div class="d-flex flex-column text-white border-white border justify-content-center align-items-center"
+                            style='background-color:rgba(0,0,0,.6);border-radius:10px;'>
+        <div class="hasil m-5 mp1 mm2  d-flex flex-column justify-content-center align-items-center">
+          <table>
+            <tr><td class='small'>Nama</td><td>:</td></tr>
+            <tr><td><u>${nama}</u></td></tr>
+            <tr><td class='small'>No Hp</td><td>:</td></tr>
+            <tr><td><u>${nohp}</u></td></tr>
+            <tr><td class='small'>Pesan</td><td>: </td></tr>
+            <tr><td><u>${pesan}</u></td></tr>
+            <tr><td class='small' >Membeli Produk</td><td>: </td></tr>
+            <tr><td>fullcream/ <u>${fullcream}</u> pcs</td>
+            <tr><td>coklat/ <u>${coklat}</u> pcs</td></tr>
+            <tr><td>strawberry/ <u>${strawberry}</u> pcs</td></tr>
+            <tr><td>taro/ <u>${taro}</u> pcs</td></tr>
+            <tr><td>redvelvet/ <u>${redvelvet}</u> pcs</td></tr>
+            <tr><td class='small'>Total Harga</td><td>: </td></tr>
+            <tr><td><u>${total} </u></td></tr>
+            <tr><td class='small'>Waktu Pesan</td><td>:</td></tr>
+            <tr><td><u>${waktu} </u></td></tr>
+          </table>
+          <div class="gambar mt-2  wi10  d-flex align-items-center justify-content-center">
+            <img class="wi9" src="${file}" >
+          </div>
+        </div>
+        
+        <button type="button" class=" btn rbn-sm btn-outline-light mb-3 wi5" onclick="kirim(${nomor})">Konfirmasi Pengiriman</button>
+
+      </div>
+      `;
+                            $(".tampilkan").prepend(temp);
+                        } else if (status === 'sudah') {
+                            let temp = `  <div class="d-flex flex-column text-white bg-secondary  border-white border justify-content-center align-items-center"
+                            style=border-radius:10px;>
+        <div class="hasil m-5 mp1 mm2  d-flex flex-column justify-content-center align-items-center">
+          <table>
+            <tr><td class='small'>Nama</td><td>:</td></tr>
+            <tr><td><u>${nama}</u></td></tr>
+            <tr><td class='small'>No Hp</td><td>:</td></tr>
+            <tr><td><u>${nohp}</u></td></tr>
+            <tr><td class='small'>Pesan</td><td>: </td></tr>
+            <tr><td><u>${pesan}</u></td></tr>
+            <tr><td class='small' >Membeli Produk</td><td>: </td></tr>
+            <tr><td>fullcream/ <u>${fullcream}</u> pcs</td>
+            <tr><td>coklat/ <u>${coklat}</u> pcs</td></tr>
+            <tr><td>strawberry/ <u>${strawberry}</u> pcs</td></tr>
+            <tr><td>taro/ <u>${taro}</u> pcs</td></tr>
+            <tr><td>redvelvet/ <u>${redvelvet}</u> pcs</td></tr>
+            <tr><td class='small'>Total Harga</td><td>: </td></tr>
+            <tr><td><u>${total} </u></td></tr>
+            <tr><td class='small'>Waktu Pesan</td><td>:</td></tr>
+            <tr><td><u>${waktu} </u></td></tr>
+          </table>
+          <div class="gambar mt-2  wi10  d-flex align-items-center justify-content-center">
+            <img class="wi9" src="${file}" >
+          </div>
+        </div>
+        
+        <button type="button" class=" btn btn-sm btn-danger mb-3 wi5" onclick="hapus(${nomor})">Hapus Pesanan</button>
+
+      </div>
+      `;
+                            $(".tampilkan").prepend(temp);
+                        }
+
+
+                    }
+                }
+            })
+        }
+        function kirim(nomor) {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '/kirim',
+                data: { nomor: nomor },
+                success: function (response) {
+                    alert(response['message']);
+                    window.location.reload();
+                }
+            })
+        }
+        function hapus(nomor) {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: '/hapus',
+                data: { nomor2: nomor },
+                success: function (response) {
+                    alert(response['message']);
+                    window.location.reload();
+                }
+            })
+        }
+
+        AOS.init();
+        function logout() {
+            $.removeCookie('mytoken');
+            alert('success remove cookie')
+            window.location.href = '/login';
+        }
+
+    </script>
+</body>
+
+</html>

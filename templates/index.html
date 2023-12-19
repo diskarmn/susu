@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Susu Mbak Siska</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Poppins:wght@200;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{url_for('static',filename='animate.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static',filename='owl.carousel.min.css')}}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{url_for('static',filename='bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{{url_for('static',filename='style.css')}}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-pink" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <div id="home" class="container-fluid sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+                <a href="index.html" class="navbar-brand">
+                    <h2 class="text-white">Susu Mbak Siska</h2>
+                </a>
+                <button type="button" class="navbar-toggler ms-auto me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse text-dark" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="{{url_for('home')}}" class="nav-item nav-link">Home</a>
+                        <a href="#bahan" class="nav-item nav-link">Bahan Bahan</a>
+                        <a href="#khasiat" class="nav-item nav-link">Khasiat</a>
+                        <a href="#rasa" class="nav-item nav-link">Macam Rasa</a>
+                        <a href="#testimoni" class="nav-item nav-link">Testimoni</a>
+                        <a href="#kontak" class="nav-item nav-link">Kontak</a>
+                    </div>
+                    <a href="{{url_for('online')}}" class="btn btn-danger py-2 px-4 d-none d-lg-inline-block">Beli
+                        Sekarang!</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- atsa -->
+    <div class="container-fluid bg-primary hero-header mb-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <h3 class="fw-light text-white animated slideInRight">Susu Sapi Segar</h3>
+                    <h1 class="display-4 text-white animated slideInRight">Susu <span class="fw-light text-dark">Mbak
+                            Siska</span> Murni</h1>
+                    <p class="text-white mb-4 animated slideInRight">Susu degar dengan penuh kasiat dan kebahagiaan.</p>
+                    <a href="{{url_for('online')}}" class="btn btn-danger py-2 px-4 m-3 animated slideInRight">Pembayaran Online</a>
+                    <a href="{{url_for('pesan')}}" class="btn btn-outline-danger py-2 px-4 animated slideInRight">Pembayaran Offline</a>
+                </div>
+                <div class="col-lg-6 d-flex justify-content-center align-items-center">
+                    <img class="img-fluid animated pulse infinite" style="width:70%;" src="{{url_for('static',filename='susu.jpg')}}"
+                        alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+
+
+    <!-- bahan 1 -->
+    <div class="container-fluid py-5" id="bahan">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="feature-item position-relative bg-pink text-center p-3">
+                        <div class="border py-5 px-3">
+                            <i class="fa  fa-3x text-dark mb-4"><img
+                                    src="https://cdn-icons-png.flaticon.com/128/9972/9972646.png"></i>
+                            <h5 class="text-white mb-0">100% Murni</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="feature-item position-relative bg-pink text-center p-3">
+                        <div class="border py-5 px-3">
+                            <i class="fa  fa-3x text-dark mb-4"><img
+                                    src="https://cdn-icons-png.flaticon.com/128/2688/2688663.png"></i>
+                            <h5 class="text-white mb-0">Fresh</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="feature-item position-relative bg-pink text-center p-3">
+                        <div class="border py-5 px-3">
+                            <i class="fa  fa-3x text-dark mb-4"> <img
+                                    src="https://cdn-icons-png.flaticon.com/128/4993/4993564.png"></i>
+                            <h5 class="text-white mb-0">Tanpa Pengawet</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- bahan1 -->
+
+
+    <!-- bahan 2-->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeIn d-flex justify-content-center align-items-center" data-wow-delay="0.1s">
+                    <img class="img-fluid animated pulse infinite" style="width:50%;" src="{{url_for('static',filename='susu2.jpg')}}">
+                </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <h1 class="text-primary mb-4 text-pink">Susu Murni <span class="fw-light text-dark">Adalah Kunci Minuman Sehat
+                            dan Berkhasiat</span></h1>
+                    <p class="mb-4">Diperah langsung dari sumbernya sehingga fresh saat diminum.</p>
+                    <a class="btn btn-outline-danger py-2 px-4 m-2" href="{{url_for('online')}}">Beli Bayar Online</a>
+                    <a class="btn btn-outline-danger py-2 px-4 m-2" href="{{url_for('pesan')}}">Beli Bayar Offline</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- BAHAN2 -->
+
+
+
+
+    <!-- Khasiat -->
+    <div class="container-fluid py-5" id="khasiat">
+        <div class="container">
+            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="text-pink mb-3 "><span class="fw-light text-dark">Khasiat Meminum</span> Susu
+                    Mbak Siska</h1>
+                <p class="mb-5">Susu Mbak Siska bukan hanya sekedar minuman pencuci mulut, namun ada berbagai macam
+                    khasiat yang didapatkan loh.</p>
+            </div>
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="row g-5">
+                        <div class="col-12 d-flex">
+                            <div class="btn-square rounded-circle border flex-shrink-0"
+                                style="width: 80px; height: 80px;">
+                                <i class="fa fa-check fa-2x text-pink"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h5>Pertumbuhan tulang dan gigi yang sehat:</h5>
+                                <hr class="w-25 bg-primary my-2">
+                                <span>Kalsium dan vitamin D dalam susu sangat penting bagi pertumbuhan dan kesehatan
+                                    tulang serta gigi. Mereka membantu mencegah osteoporosis dan menjaga kekuatan
+                                    tulang.</span>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex">
+                            <div class="btn-square rounded-circle border flex-shrink-0"
+                                style="width: 80px; height: 80px;">
+                                <i class="fa fa-check fa-2x text-pink"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h5>Sumber Nutrisi</h5>
+                                <hr class="w-25 bg-primary my-2">
+                                <span> Susu segar kaya akan nutrisi penting seperti protein, kalsium, vitamin D, vitamin
+                                    B12, riboflavin, dan fosfor. Nutrisi-nutrisi ini penting untuk pertumbuhan tulang,
+                                    menjaga kesehatan gigi, serta memperkuat sistem kekebalan tubuh.</span>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex">
+                            <div class="btn-square rounded-circle border flex-shrink-0"
+                                style="width: 80px; height: 80px;">
+                                <i class="fa fa-check fa-2x text-pink"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h5>Pemenuhan kebutuhan protein</h5>
+                                <hr class="w-25 bg-primary my-2">
+                                <span> Protein dalam susu membantu membangun dan memperbaiki jaringan tubuh. Ini penting
+                                    untuk pertumbuhan otot dan memperbaiki sel-sel yang rusak.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow fadeIn d-flex justify-content-center align-items-center" data-wow-delay="0.1s">
+                    <img class="img-fluid animated pulse infinite" style="width:50%;" src="{{url_for('static',filename='susu3.jpg')}}">
+                </div>
+                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="row g-5">
+                        <div class="col-12 d-flex">
+                            <div class="btn-square rounded-circle border flex-shrink-0"
+                                style="width: 80px; height: 80px;">
+                                <i class="fa fa-check fa-2x text-pink"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h5>Mendukung kesehatan jantung</h5>
+                                <hr class="w-25 bg-primary my-2">
+                                <span> Beberapa penelitian menunjukkan bahwa konsumsi susu yang sehat dapat membantu
+                                    menurunkan risiko penyakit jantung.</span>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex">
+                            <div class="btn-square rounded-circle border flex-shrink-0"
+                                style="width: 80px; height: 80px;">
+                                <i class="fa fa-check fa-2x text-pink"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h5>Mengatur tekanan darah</h5>
+                                <hr class="w-25 bg-primary my-2">
+                                <span> Susu mengandung peptida bioaktif yang dapat membantu dalam mengatur tekanan darah.</span>
+                            </div>
+                        </div>
+                        <div class="col-12 d-flex">
+                            <div class="btn-square rounded-circle border flex-shrink-0"
+                                style="width: 80px; height: 80px;">
+                                <i class="fa fa-check fa-2x text-pink"></i>
+                            </div>
+                            <div class="ps-3">
+                                <h5>Mengandung nutrisi penting untuk otak</h5>
+                                <hr class="w-25 bg-primary my-2">
+                                <span>Komponen seperti vitamin B12, protein, dan asam lemak omega-3 dalam susu dapat mendukung kesehatan otak dan fungsi kognitif.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--khasiat -->
+
+
+
+
+
+    <!-- rasa-->
+    <div class="container-fluid py-5" id="rasa">
+        <div class="container">
+            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="text-pink mb-3"><span class="fw-light text-dark">Macam Macam Rasa</span> Susu Mbak Siska</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="product-item text-center border h-100 p-4">
+                        <div class="mb-2">
+                            <img class="img-fluid mb-4" src="{{url_for('static',filename='strawberry.png')}}" alt="">
+                            
+                        </div>
+                        <p class="h6 d-inline-block mb-2">Full Cream</p>
+                        <h5 class="text-pink mb-3">Rp.25.000</h5>
+                        <a href="{{url_for('online')}}" class="btn btn-outline-danger px-3 mb-2">Beli Bayar Online</a>
+                        <a href="{{url_for('pesan')}}" class="btn btn-outline-danger px-3">Beli Bayar Offline</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+                    <div class="product-item text-center border h-100 p-4">
+                        <div class="mb-2">
+                            <img class="img-fluid mb-4" src="{{url_for('static',filename='fullcream.png')}}" alt="">
+                            
+                        </div>
+                        <p class="h6 d-inline-block mb-2">Strawberry</p>
+                        <h5 class="text-pink mb-3">Rp.20.000</h5>
+                        <a href="{{url_for('online')}}" class="btn btn-outline-danger px-3 mb-2">Beli Bayar Online</a>
+                        <a href="{{url_for('pesan')}}" class="btn btn-outline-danger px-3">Beli Bayar Offline</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="product-item text-center border h-100 p-4">
+                        <div class="mb-2">
+                            <img class="img-fluid mb-4" src="{{url_for('static',filename='coklat.png')}}" alt="">
+                            
+                        </div>
+                        <p class="h6 d-inline-block mb-2">Coklat</p>
+                        <h5 class="text-pink mb-3">Rp.20.000</h5>
+                        <a href="{{url_for('online')}}" class="btn btn-outline-danger px-3 mb-2">Beli Bayar Online</a>
+                        <a href="{{url_for('pesan')}}" class="btn btn-outline-danger px-3">Beli Bayar Offline</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                    <div class="product-item text-center border h-100 p-4">
+                        <div class="mb-2">
+                            <img class="img-fluid mb-4" src="{{url_for('static',filename='taro.png')}}" alt="">
+                            
+                        </div>
+                        <p class="h6 d-inline-block mb-2">Taro</p>
+                        <h5 class="text-pink mb-3">Rp.20.000</h5>
+                        <a href="{{url_for('online')}}" class="btn btn-outline-danger px-3 mb-2">Beli Bayar Online</a>
+                        <a href="{{url_for('pesan')}}" class="btn btn-outline-danger px-3">Beli Bayar Offline</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+                    <div class="product-item text-center border h-100 p-4">
+                        <div class="mb-2">
+                            <img class="img-fluid mb-4" src="{{url_for('static',filename='red.png')}}" alt="">
+                            
+                        </div>
+                        <p class="h6 d-inline-block mb-2">Redvelvet</p>
+                        <h5 class="text-pink mb-3">Rp.20.000</h5>
+                        <a href="{{url_for('online')}}" class="btn btn-outline-danger px-3 mb-2">Beli Bayar Online</a>
+                        <a href="{{url_for('pesan')}}" class="btn btn-outline-danger px-3">Beli Bayar Offline</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- rasa -->
+
+
+    <!-- Testimonial -->
+    <div class="container-fluid testimonial bg-pink my-5 py-5" id="testimoni">
+        <div class="container text-white py-5">
+            <div class="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style="max-width: 600px;">
+                <h1 class="text-white mb-3">Komentar Pelanggan <span class="fw-light text-dark">Susu Mbak Siska</span></h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="owl-carousel testimonial-carousel wow fadeIn" data-wow-delay="0.1s">
+                        <div class="testimonial-item text-center" data-dot="1">
+                            <img class="img-fluid border p-2" src="{{url_for('static',filename='testi1.jpg')}}" alt="">
+                            <h5 class="fw-light lh-base text-white">Susune seger langsung dari sumbernya.</h5>
+                            <h5 class="mb-1">Mas Machalite</h5>
+                        </div>
+                        <div class="testimonial-item text-center" data-dot="1">
+                            <img class="img-fluid border p-2" src="{{url_for('static',filename='testi2.jpg')}}" alt="">
+                            <h5 class="fw-light lh-base text-white">Badanku jadi lebih seksi setelah minum susu mbak siska :3.</h5>
+                            <h5 class="mb-1">Mbak Lunastra</h5>
+                        </div>
+                        <div class="testimonial-item text-center" data-dot="1">
+                            <img class="img-fluid border p-2" src="{{url_for('static',filename='testi3.jpg')}}" alt="">
+                            <h5 class="fw-light lh-base text-white">Mbaknya yang jual cantik deh.</h5>
+                            <h5 class="mb-1">Dek Ratian</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+
+
+
+
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-white footer  d-flex flex-column justify-content-center align-items-center" id="kontak">
+        <div class="container py-5  d-flex flex-column justify-content-center align-items-center">
+            <div class="row g-5">
+                <div class=" wow fadeIn" data-wow-delay="0.1s">
+                    <a href="index.html" class="d-inline-block mb-3">
+                        <h1 class="text-pink">Susu Mbak Siska</h1>
+                    </a>
+                    <p class="mb-0">Susu segar dengan penuh khasiat dan kebahagiaan.</p>
+                </div>
+                <div class=" wow fadeIn" data-wow-delay="0.3s">
+                    <h5 class="mb-4">Get In Touch</h5>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>Ambarawa</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+62 8128 401 3044</p>
+                    <p><i class="fa fa-envelope me-3"></i>diskarmn@gmail.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-danger me-1" href="https://twitter.com/?lang=en-id"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-outline-danger me-1" href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-danger me-1" href="https://www.instagram.com/ro.lunastra?igshid=YTQwZjQ0NmI0OA=="><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square btn-outline-danger me-1" href="https://www.linkedin.com/in/diska-romandoni-017055281?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container wow fadeIn" data-wow-delay="0.1s">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Susu Mbak Siska</a>.
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-pink btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{url_for('static',filename='wow.min.js')}}"></script>
+    <script src="{{url_for('static',filename='easing.min.js')}}"></script>
+    <script src="{{url_for('static',filename='waypoints.min.js')}}"></script>
+    <script src="{{url_for('static',filename='owl.carousel.min.js')}}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{{url_for('static',filename='main.js')}}"></script>
+</body>
+
+</html>
